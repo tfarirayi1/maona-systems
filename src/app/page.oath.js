@@ -20,4 +20,3 @@ export default class OathPage extends React.Component{
         );
     }
 }
-
