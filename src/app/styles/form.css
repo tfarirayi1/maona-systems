@@ -1,0 +1,40 @@
+.FORM{
+    max-width:10em;
+}
+    .form-input
+    {
+        padding:0.2rem;
+        display:flex;
+        flex-direction:column;
+    }
+    
+    .form-button
+    {
+        font-size:61%;
+    }
+
+    label
+    {
+        color:rgba(0,0,0,0.7);
+        font-size:67%;
+        padding:1%;
+    }
+
+    input
+    {
+        border-left:0.05rem solid rgba(0,0,0,0.2);
+        border-bottom:0.05rem solid rgba(0,0,0,0);
+        font-size:51%;
+        padding:3%;
+    }
+    
+    input:focus
+    {
+        border-bottom:0.05rem solid rgba(0,0,0,0.2);
+    }
+    
+    input:invalid
+    {
+        box-shadow:none;
+    }
+    

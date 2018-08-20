@@ -1,0 +1,18 @@
+    .service
+    {
+        font-size:47%;
+        padding:2%;
+    }
+    
+    .service-title
+    {
+        font-weight:bold;
+        font-size:111%;
+        text-transform:capitalize;
+        display:flex;
+        flex-direction:row;
+    }
+    .service-list
+    {
+        padding-left:3%;
+    }

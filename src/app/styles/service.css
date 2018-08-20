@@ -1,0 +1,15 @@
+    .service-detail{
+        display:flex;
+        flex-direction:column;
+        font-size:61%;
+        padding:2%;
+    }
+    .key{
+        font-weight:bold;
+    }
+    .key::after{
+        content:'\003a';
+    }
+    .value{
+        padding-left:2%;
+    }
