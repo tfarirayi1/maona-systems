@@ -3,17 +3,17 @@ import React from 'react';
 export default class OathPage extends React.Component{
     render(){
         return(
-            <div className="oath">
+            <div className="about">
                 <div>
-                    our purpose:
+                    our mission is to computerise business processes for companies in the UK
                     <div>
-                        digitise business operations for UK enterprises
+                        
                     </div>
                 </div>
                 <div>
-                    our strategy:
+                    we develop <span className="glossary">website-systems</span> for carrying out <span className="glossary">information management activities</span>
                     <div>
-                        design and provision <span className="glossary">web-systems</span> for carrying out <span className="glossary">business process work</span>
+                        
                     </div>
                 </div>
             </div>

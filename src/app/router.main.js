@@ -2,11 +2,11 @@ import React            from 'react';
 import BlankPage        from 'page.blank';
 import IndexPage        from 'page.index';
 import RegisterPage     from 'page.register';
+import AboutUsPage      from 'page.about-us';
+import GlossaryPage     from 'page.glossary';
 import LoginRouter      from 'router.login';
 import SolutionsRouter  from 'router.solutions';
-import OathPage         from 'page.oath';
 import AccountRouter    from 'router.account';
-import GlossaryPage     from 'page.glossary';
 import RouteBroker      from 'broker.route';
 import {Switch,Route}   from 'react-router-dom';
 
@@ -14,7 +14,7 @@ export default class MainRouter extends React.Component{
     constructor(){
         super();
         // load procedures
-        this._renderRoutes=RouteBroker.renderRoutes.bind(this);
+        this.renderRoutes=RouteBroker.renderRoutes.bind(this);
         // set state
         this.state={};
         this.state.routes=[
@@ -44,8 +44,8 @@ export default class MainRouter extends React.Component{
                 exact:false,
             },  
             {
-                endpoint:'/oath',
-                component:OathPage,
+                endpoint:'/about-us',
+                component:AboutUsPage,
                 exact:true,
             },
             {
@@ -57,12 +57,11 @@ export default class MainRouter extends React.Component{
     }
 
     render(){
-        const RouteList=()=>{
-            return this._renderRoutes();
-        };
         return(
             <Switch>
-                <RouteList/>
+                {
+                    this.renderRoutes()
+                }
                 <Route component={BlankPage}/>
             </Switch>
         );

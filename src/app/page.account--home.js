@@ -19,17 +19,6 @@ export default class AccountHomePage extends React.Component{
     }
 
     render(){
-        const Menu=()=>{
-            return this.state.menu.map((a,b)=>{
-                const item=a;
-                const position=b;
-                    return(
-                        <div key={position}>
-                            <Link to={item.endpoint}>{item.title}</Link>
-                        </div>
-                    );
-            });
-        };
         return(
             <div className="account--home">
                 <div>
@@ -40,7 +29,17 @@ export default class AccountHomePage extends React.Component{
                         {this.props.userId}
                     </div>
                 </div>
-                <Menu/>
+                {
+                    this.state.menu.map((a,b)=>{
+                        const item=a;
+                        const position=b;
+                            return(
+                                <div key={position}>
+                                    <Link to={item.endpoint}>{item.title}</Link>
+                                </div>
+                            );
+                    })
+                }
             </div>
         );
     }

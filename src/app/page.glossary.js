@@ -8,15 +8,11 @@ export default class GlossaryPage extends React.Component{
         this.state.data=[
             {
                 key:'web-system',
-                value:'_a group of associated websites designed to achieve a common purpose',
+                value:'_a website, or a set of interdependent websites designed to implement one or more business processes',
             },
             {
                 key:'business process',
-                value:'_logically related activities or tasks performed successively to achieve a specific result',
-            },
-            {
-                key:'business operations',
-                value:'_everything that happens within a company to keep it running and earning money',
+                value:'_activities or tasks performed successively to achieve a specific result',
             },
         ];
     }

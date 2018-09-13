@@ -3,9 +3,9 @@ import React from 'react';
 export default class AccountFilePage extends React.Component{
     render(){
         return(
-            <div className="account--file">
+            <div className="account--details">
                 <div>
-                    your File
+                    your details
                 </div>
             </div>
         );

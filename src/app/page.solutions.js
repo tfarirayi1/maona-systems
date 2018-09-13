@@ -6,20 +6,28 @@ export default class SolutionsPage extends React.Component{
         super();
         // set state
         this.state={};
-        this.state.links=[
+        this.state.menu=[
             {
                 endpoint:'/solutions/salon-system',
-                title:'salon web-system',
+                title:'salon system',
             },
             {
                 endpoint:'/solutions/takeaway-system',
-                title:'takeaway web-system',
+                title:'takeaway system',
+            },
+            {
+                endpoint:'/solutions/restaurant-system',
+                title:'restaurant system',
+            },
+            {
+                endpoint:'/solutions/restaurant-system',
+                title:'ecommerce system',
             },
         ];
     }
     render(){
-        const Solutions=()=>{
-            return this.state.links.map((a,b)=>{
+        const Menu=()=>{
+            return this.state.menu.map((a,b)=>{
                 const item=a;
                 const position=b;
                     return(
@@ -31,9 +39,9 @@ export default class SolutionsPage extends React.Component{
         };
         return(
             <div className="solutions">
-                available solutions
+                applicable solutions
                 <div>
-                    <Solutions/>
+                    <Menu/>
                 </div>
             </div>
         );

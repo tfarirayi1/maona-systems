@@ -10,7 +10,7 @@ export default class SolutionsRouter extends React.Component{
     constructor(){
         super();
         // load procedures
-        this._renderRoutes=RouteBroker.renderRoutes.bind(this);
+        this.renderRoutes=RouteBroker.renderRoutes.bind(this);
         // set state
         this.state={};
         this.state.routes=[
@@ -33,12 +33,11 @@ export default class SolutionsRouter extends React.Component{
     }
 
     render(){
-        const RouteList=()=>{
-            return this._renderRoutes();
-        };
         return(
             <Switch>
-                <RouteList/>
+                {
+                    this.renderRoutes()
+                }
                 <Route component={BlankPage}/>
             </Switch>
         );

@@ -5,12 +5,12 @@ import          'styles/index.css';
 export default class IndexPage extends React.Component{
     render(){
         const Neutral=()=>(
-            <div className="index---neutral">
+            <div className="index---neutral-menu">
                 <div>
                     <Link to="/solutions">solutions</Link>
                 </div>
                 <div>
-                    <Link to="/oath">oath</Link>
+                    <Link to="/about-us">about-us</Link>
                 </div>
                 <div>
                     <Link to="/glossary">glossary</Link>
@@ -19,11 +19,14 @@ export default class IndexPage extends React.Component{
         );
 
         const Content=()=>{
-            if(this.props.userId){
+            const currentUser=this.props.userId;
+            if(currentUser){
                 return(
                     <React.Fragment>
-                        <div>
-                            <Link to="/account">account</Link>
+                        <div className="index---authenticated-menu">
+                            <div>
+                                <Link to="/account">account</Link>
+                            </div>
                         </div>
                         <Neutral/>
                     </React.Fragment>
@@ -32,11 +35,13 @@ export default class IndexPage extends React.Component{
             }else{
                 return(
                     <React.Fragment>
-                        <div>
-                            <Link to="/login">login</Link>
-                        </div>
-                        <div>
-                            <Link to="/register">register</Link>
+                        <div className="index---unauthenticated-menu">
+                            <div>
+                                <Link to="/login">login</Link>
+                            </div>
+                            <div>
+                                <Link to="/register">register</Link>
+                            </div>
                         </div>
                         <Neutral/>
                     </React.Fragment>
