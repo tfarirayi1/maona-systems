@@ -1,6 +1,7 @@
 import {Auth as Cognito} from 'aws-amplify';
 
 export default class LoginBroker{
+    
     static configure(){
         Cognito.configure({
             identityPoolId:'eu-west-1:25388842-fe3f-47da-b371-8523843a6018',

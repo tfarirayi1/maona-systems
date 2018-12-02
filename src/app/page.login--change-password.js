@@ -29,46 +29,46 @@ export default class ChangePasswordPage extends React.Component{
     }
 
     render(){
+        const Form=(
+            <div ref={this.form}>
+                <div>
+                    <label htmlFor="emailInput">
+                        email
+                    </label>
+                    <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput} onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
+                </div>
+                <div>
+                    <label htmlFor="verificationCodeInput">
+                        verification code
+                    </label>
+                    <input id="verificationCodeInput" type="number" value={this.state.verificationCodeInput} onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
+                </div>
+                <div>
+                    <label htmlFor="passwordInput">
+                        new password
+                    </label>
+                    <input id="passwordInput" type="password" value={this.state.passwordInput} onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
+                </div>
+                <div>
+                    <label htmlFor="passwordConfirmationInput">
+                        confirm new password
+                    </label>
+                    <input id="passwordConfirmationInput" type="password" value={this.state.passwordConfirmationInput} onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
+                </div>
+                <div>
+                    <div tabIndex="0" ref={this.formSubmitButton} onClick={this._setNewPassword}>
+                        submit
+                    </div>
+                </div> 
+            </div>
+        );
+
         return(
-            <div className="login--change-password">
+            <div>
                 <div>
                     Change Password
                 </div>
-                <div ref={this.form}>
-                    <div>
-                        <label htmlFor="emailInput">
-                            email
-                        </label>
-                        <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput}
-                            onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="verificationCodeInput">
-                            verification code
-                        </label>
-                        <input id="verificationCodeInput" type="number" value={this.state.verificationCodeInput}
-                            onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="passwordInput">
-                            new password
-                        </label>
-                        <input id="passwordInput" type="password" value={this.state.passwordInput}
-                            onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
-                    </div>
-                    <div>
-                        <label htmlFor="passwordConfirmationInput">
-                            confirm new password
-                        </label>
-                        <input id="passwordConfirmationInput" type="password" value={this.state.passwordConfirmationInput}
-                            onKeyDown={this._traverseForm} onChange={this._handleInputChange}/>
-                    </div>
-                    <div>
-                        <div tabIndex="0" ref={this.formSubmitButton} onClick={this._setNewPassword}>
-                            submit
-                        </div>
-                    </div> 
-                </div>
+                {Form}
             </div>
         );
     }

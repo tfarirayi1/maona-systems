@@ -1,7 +1,7 @@
 import React                from 'react';
-import SolutionsPage        from 'page.solutions';
-import TakeawaySystemPage   from 'page.solutions--takeaway-system';
-import SalonSystemPage      from 'page.solutions--salon-system';
+import ExamplesPage         from 'page.examples';
+import TakeawaySystemPage   from 'page.examples--takeaway-system';
+import SalonSystemPage      from 'page.examples--salon-system';
 import BlankPage            from 'page.blank';
 import RouteBroker          from 'broker.route';
 import {Route,Switch}       from 'react-router-dom';
@@ -15,17 +15,17 @@ export default class SolutionsRouter extends React.Component{
         this.state={};
         this.state.routes=[
             {
-                endpoint:'/solutions',
-                component:SolutionsPage,
+                endpoint:'/examples',
+                component:ExamplesPage,
                 exact:true,
             },
             {
-                endpoint:'/solutions/salon-system',
+                endpoint:'/examples/salon-system',
                 component:SalonSystemPage,
                 exact:true,
             },
             {
-                endpoint:'/solutions/takeaway-system',
+                endpoint:'/examples/takeaway-system',
                 component:TakeawaySystemPage,
                 exact:true,
             },

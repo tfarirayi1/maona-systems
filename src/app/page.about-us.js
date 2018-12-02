@@ -5,13 +5,15 @@ export default class OathPage extends React.Component{
         return(
             <div className="about">
                 <div>
-                    our mission is to computerise business processes for companies in the UK
+                    {/* we computerise business processes for companies in the UK by designing and developing for them web apps for managing and processing information  */}
+                    we develop and maintain web apps for various types of organisations
                     <div>
                         
                     </div>
                 </div>
                 <div>
-                    we develop <span className="glossary">website-systems</span> for carrying out <span className="glossary">information management activities</span>
+                    our purpose is to facillitate the processing and management of distributed information by computerising primary business processes
+                    {/* our work is to design and develop for our clients, <span className="glossary">web apps</span> for managing and processing information */}
                     <div>
                         
                     </div>

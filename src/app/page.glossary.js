@@ -17,24 +17,22 @@ export default class GlossaryPage extends React.Component{
         ];
     }
     render(){
-        const List=()=>{
-            return this.state.data.map((a,b)=>{
-                const item=a;
-                const index=b;
-                return(
-                    <div key={index}>
-                        <div>{item.key}</div>
-                        <div>{item.value}</div>
-                    </div>
-                );
-            });
-        };
+        const List=this.state.data.map((a,b)=>{
+            const item=a;
+            const index=b;
+            return(
+                <div key={index}>
+                    <div>{item.key}</div>
+                    <div>{item.value}</div>
+                </div>
+            );
+        });
         return(
             <div className="glossary">
                 <div>
                     glossary
                 </div>
-                <List/>
+                {List}
             </div>
         );
     }

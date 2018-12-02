@@ -1,4 +1,5 @@
 export default class FormBroker{
+
     static handleInputChange(p1){
         const event=p1;
         const nextState={};
@@ -15,7 +16,7 @@ export default class FormBroker{
             const formIterator=document.createNodeIterator(
                 form,
                 NodeFilter.SHOW_ELEMENT,
-                p1=>{
+                (p1)=>{
                     const node=p1;
                     return node.tagName==='INPUT'?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP;
                 }
@@ -27,7 +28,12 @@ export default class FormBroker{
                         formIterator.nextNode().focus();
                     }
                     catch(p1){
-                        formSubmitButton.click();
+                        const error=p1;
+                        if(error instanceof TypeError){
+                            formSubmitButton.click();
+                        } else {
+                            console.log('unknown-error-code');
+                        }
                     }
                 }
                 currentNode=formIterator.nextNode();

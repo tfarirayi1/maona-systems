@@ -1,56 +1,104 @@
-import React    from 'react';
-import {Link}   from 'react-router-dom';
-import          'styles/index.css';
+import React
+    from 'react';
+import {Link}
+    from 'react-router-dom';
+import $index
+    from 'styles/index.module.css';
 
 export default class IndexPage extends React.Component{
     render(){
-        const Neutral=()=>(
-            <div className="index---neutral-menu">
-                <div>
-                    <Link to="/solutions">solutions</Link>
+        const Neutral=(
+            <div>
+
+                <div 
+                className={$index.link}>
+                
+                    <Link 
+                    to="/about-us">
+                        about-us
+                    </Link>
+
                 </div>
-                <div>
-                    <Link to="/about-us">about-us</Link>
+                
+                <div 
+                className={$index.link}>
+                    
+                    <Link 
+                    to="/examples">
+                        examples
+                    </Link>
+
                 </div>
-                <div>
-                    <Link to="/glossary">glossary</Link>
-                </div>
+
             </div>
         );
 
-        const Content=()=>{
-            const currentUser=this.props.userId;
-            if(currentUser){
-                return(
-                    <React.Fragment>
-                        <div className="index---authenticated-menu">
-                            <div>
-                                <Link to="/account">account</Link>
-                            </div>
-                        </div>
-                        <Neutral/>
-                    </React.Fragment>
+        let Moderated;
 
-                );
-            }else{
-                return(
-                    <React.Fragment>
-                        <div className="index---unauthenticated-menu">
-                            <div>
-                                <Link to="/login">login</Link>
-                            </div>
-                            <div>
-                                <Link to="/register">register</Link>
-                            </div>
+        if (this.props.userId) {
+            Moderated=(
+                <React.Fragment>
+                    
+                    <div>
+                    
+                        <div
+                        className={$index.link}>
+                    
+                            <Link 
+                            to="/account">
+                                account
+                            </Link>
+                    
                         </div>
-                        <Neutral/>
-                    </React.Fragment>
-                );
-            }
-        };
+                    
+                    </div>
+                    
+                    {Neutral}
+                
+                </React.Fragment>
+            );
+        } else {
+            Moderated=(
+                <React.Fragment>
+                    <div>
+                        
+                        <div
+                        className={$index.link}>
+
+                            <Link 
+                            to="/login">
+                                
+                                login
+
+                            </Link>
+                        
+                        </div>
+
+                        <div
+                        className={$index.link}>
+
+                            <Link 
+                            to="/register">
+                            
+                                register
+
+                            </Link>
+
+                        </div>
+
+                    </div>
+
+                    {Neutral}
+
+                </React.Fragment>
+            );
+        }
+
         return(
-            <div className="index">
-                <Content/>
+            <div>
+
+                {Moderated}
+                
             </div>
         );
     }

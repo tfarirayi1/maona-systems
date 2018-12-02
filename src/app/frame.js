@@ -1,25 +1,25 @@
 import React                from 'react';
 import LoginBroker          from 'broker.login';
-import MainRouter           from 'router.main';
-import FrameBroker          from 'broker.frame';
+import IndexRouter          from 'router.index';
+import NavigationBroker     from 'broker.navigation';
 import {withRouter}         from 'react-router-dom';
-import {ArrowUpwardIcon}    from 'mdi-react';
+import {MenuIcon,HomeIcon,InformationIcon,MagnifyPlusIcon,MagnifyMinusIcon,SettingsIcon}  from 'mdi-react';
 import                      'styles/frame.css';
 
 class Frame extends React.Component{
     constructor(){
         super();
         // load procedures
-        this._goUp=FrameBroker.goUp.bind(this);
-        this._signOut=LoginBroker.signOut.bind(this);
-        this._verifyUser=LoginBroker.verifyUser.bind(this);
-        this._configureAuthentication=LoginBroker.configure.bind(this);
+        this.navigateUp=NavigationBroker.navigateUp.bind(this);
+        this.signOut=LoginBroker.signOut.bind(this);
+        this.verifyUser=LoginBroker.verifyUser.bind(this);
+        this.configureAuthentication=LoginBroker.configure.bind(this);
         // set state
         this.state={}
         this.state.userId='';
         // perform initial actions
         document.title='maona-systems';
-        this._configureAuthentication();
+        this.configureAuthentication();
     }
 
     componentDidMount(){
@@ -32,10 +32,16 @@ class Frame extends React.Component{
                 return null;
             }else{
                 return(
-                    <div className="frame---tool-panel">
-                        <div className="frame---navigation-button">
-                            <ArrowUpwardIcon size="1em" tabIndex="0" onClick={this._goUp}/>
-                        </div>  
+                    <div className="frame__tool-panel">
+                        <div className="frame__button">
+                            <MenuIcon size="1em" tabIndex="0" onClick={this.navigateUp}/>
+                        </div>
+                        <div className="frame__button">
+                            <InformationIcon size="1em" tabIndex="0"/>
+                        </div>
+                        <div className="frame__button">
+                            <SettingsIcon size="1em" tabIndex="0"/>
+                        </div>
                     </div>
                 );
             }
@@ -45,7 +51,7 @@ class Frame extends React.Component{
             <div className="frame">
                 <ToolPanel/>
                 <div className="frame---view-panel">
-                    <MainRouter userId={this.state.userId}/>
+                    <IndexRouter userId={this.state.userId}/>
                 </div>
             </div>
         );

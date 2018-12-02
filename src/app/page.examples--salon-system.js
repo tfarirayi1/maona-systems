@@ -26,24 +26,23 @@ export default class SalonSystemPage extends React.Component{
     }
 
     render(){
-        const Details=()=>{
-            return this.state.data.map((a,b)=>{
-                const item=a;
-                const position=b;
-                return(
-                    <div key={position}>
-                        <div>{item.key}</div>
-                        <div>{item.value}</div>
-                    </div>
-                );
-            });
-        };
+        const Details=this.state.data.map((a,b)=>{
+            const item=a;
+            const position=b;
+           
+            return(
+                <div key={position}>
+                    <div>{item.key}</div>
+                    <div>{item.value}</div>
+                </div>
+            );
+        });
         return(
-            <div className="solutions--salon-system">
+            <div>
                 <div>
                     salon web-system info
                 </div>
-                <Details/>
+                {Details}
             </div>
         );
     }

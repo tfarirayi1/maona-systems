@@ -1,68 +1,140 @@
-import React        from 'react';
-import FormBroker   from 'broker.form';
-import LoginBroker  from 'broker.login';
-import {Redirect}   from 'react-router-dom';
+import React 
+    from 'react';
+import {Redirect} 
+    from 'react-router-dom';
+import FormBroker 
+    from 'broker.form';
+import LoginBroker 
+    from 'broker.login';
+import {PencilIcon} 
+    from 'mdi-react';
+import {ArrowRightBoldIcon} 
+    from 'mdi-react';
+import $form
+    from 'styles/form.module.css';
 
 export default class LoginPage extends React.Component{
     constructor(){
         super();
-        // load procedures
-        this._handleInputChange=FormBroker.handleInputChange.bind(this);
-        this._traverserForm=FormBroker.traverseForm.bind(this);
-        this._login=LoginBroker.signIn.bind(this);
-        this._changePassword=LoginBroker.changePassword.bind(this);
-        // set state
+        // LOAD FUNCTIONS
+        this.loginFunction=LoginBroker.signIn.bind(this);
+        this.changePasswordFunction=LoginBroker.changePassword.bind(this);
+        // SET STATE
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
         this.state={};
-        this.state.emailInput='';
-        this.state.passwordInput='';
+        this.state.emailInput="";
+        this.state.passwordInput="";
+        this.state.inputIconSize="0.5em";
+        this.state.submitButtonIconSize="0.8em";
     }
 
     render(){
-        const Content=()=>{
-            const currentUser=this.props.userId;
-            if(currentUser===''){
-                return(
-                    <div ref={this.form}>
-                        <div>
-                            <label htmlFor="emailInput">
-                                email
-                            </label>
-                            <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverserForm}/>
+        let Form;
+
+        if (this.props.userId==='') {
+            Form=(
+                <div 
+                className="form" 
+                ref={this.form}>
+                    
+                    <div 
+                    className={$form.input}>
+
+                        <div 
+                        className={$form.component}>
+                            
+                            <PencilIcon 
+                            className={$form.input_icon} 
+                            size={this.state.inputIconSize}/>
+
+                            <span 
+                            className={$form.input_label}>
+                                Email
+                            </span>
+
                         </div>
-                        <div>
-                            <label htmlFor="passwordInput">
-                                password
-                            </label>
-                            <input id="passwordInput" type="password" value={this.state.passwordInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverserForm}/>
+
+                        <div 
+                        className={$form.component}>
+
+                            <PencilIcon 
+                            className={$form.input_icon} 
+                            size={this.state.inputIconSize}/>
+                            
+                            <span 
+                            className={$form.input_label}>
+
+                                Password
+
+                            </span>
+
                         </div>
-                        <div>
-                            <div ref={this.formSubmitButton} tabIndex="0" onClick={this._login}>
-                                    submit
-                            </div>
-                        </div>
-                        <div>
-                            <div tabIndex="0" onClick={this._changePassword}>
-                                    change password
-                            </div>
-                        </div>
+
                     </div>
-                );
-            }else{
-                return(
-                    <Redirect to='/account'/>
-                );
-            }
-        };
-        return(
-            <div className="login">
-                <div>
-                    login
+
+                    <div 
+                    className={$form.submit_buttons}>
+
+                        <div 
+                        className={$form.component}
+                        className={$form.button}>
+                            
+                            <div 
+                            ref={this.formSubmitButton} 
+                            tabIndex="0" 
+                            onClick={this.login}>
+
+                                Login
+
+                            </div>
+
+                            <ArrowRightBoldIcon 
+                            className={$form.submit_icon}
+                            size={this.state.submitButtonIconSize}/>
+
+                        </div>
+                    
+                        <div 
+                        className={$form.component}
+                        className={$form.button}>
+
+                            <div 
+                            className="form__change-password-button" 
+                            tabIndex="0" 
+                            onClick={this.changePassword}>
+                            
+                                    Change-password
+                            
+                            </div>
+
+                            <ArrowRightBoldIcon 
+                            className={$form.submit_icon} 
+                            size={this.state.submitButtonIconSize}/>
+
+                        </div>
+                    
+                    </div>
+
                 </div>
-                <Content/>
+            );
+        } else {
+            Form=(
+                <Redirect to='/account'/>
+            );
+        }
+
+        return(
+            <div 
+            className="page">
+
+                <div 
+                className="page__content">
+
+                    {Form}
+
+                </div>
+
             </div>
         );
     }

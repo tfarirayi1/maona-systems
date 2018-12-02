@@ -1,7 +1,6 @@
 import React        from 'react';
 import LoginBroker  from 'broker.login';
 import FormBroker   from 'broker.form';
-import              'styles/login.reset-password.css';
 
 export default class ResetPasswordPage extends React.Component{
     constructor(props){
@@ -19,25 +18,28 @@ export default class ResetPasswordPage extends React.Component{
     }
     
     render(){
+        const Form=(
+            <div ref={this.form}>
+                <div>
+                    <label htmlFor="emailInput">
+                        email
+                    </label>
+                    <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput} onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
+                </div>
+                <div>
+                    <div tabIndex="0" ref={this.formSubmitButton} onClick={this._resetPassword}>
+                        submit 
+                    </div>
+                </div>
+            </div>
+        );
+        
         return(
-            <div className="login--reset-password">
+            <div>
                 <div>
                     password-reset
                 </div>
-                <div ref={this.form}>
-                    <div>
-                        <label htmlFor="emailInput">
-                            email
-                        </label>
-                        <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput}
-                            onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
-                    </div>
-                    <div>
-                        <div tabIndex="0" ref={this.formSubmitButton} onClick={this._resetPassword}>
-                            submit 
-                        </div>
-                    </div>
-                </div>
+                {Form}
             </div>
         );
     }
