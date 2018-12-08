@@ -1,16 +1,20 @@
-import React        from 'react';
-import LoginBroker  from 'broker.login';
-import FormBroker   from 'broker.form';
-import {Redirect}   from 'react-router-dom';
+import React
+    from 'react';
+import LoginBroker
+    from 'brokers/login.broker';
+import FormBroker
+    from 'brokers/form.broker';
+import {Redirect}
+    from 'react-router-dom';
 
 export default class RegisterPage extends React.Component{
     constructor(){
         super();
-        // load procedures
+        // LOAD FUNCTIONS
         this._handleInputChange=FormBroker.handleInputChange.bind(this);
         this._traverseForm=FormBroker.traverseForm.bind(this);
         this._register=LoginBroker.register.bind(this);
-        // set state
+        // SET STATE
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
         this.state={};

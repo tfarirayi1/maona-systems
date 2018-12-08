@@ -1,6 +1,57 @@
+@font-face {
+    font-family:mono;
+    src:url(../fonts/OverpassMono-Light.ttf);
+}
+
 .link {
-    padding:0.3rem;
-    font-weight:bold;
-    text-transform:capitalize;
-    letter-spacing:3px;
+    padding:0.08rem;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-align:center;
+    background-color:rgba(0,0,0,0);
+}
+
+.link:before {
+    content:'.';
+    font-size:0.8em;
+    letter-spacing:2px;
+    color:rgba(0,0,0,1);
+}
+
+.page {
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:flex-start;
+    background-color:rgba(0,77,64,0);
+    padding-top:0.3rem;
+}
+
+.menu {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-size:0.58rem;
+    background-color:rgba(0,0,0,0);
+    letter-spacing:3.4px;
+    flex-basis:content;
+    font-family:mono;
+}
+
+.link_box {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
+    width:100%;
+}
+
+.copyright {
+    font-size:0.5rem;
+    align-self:center;
+    padding-top:3rem;
+    font-style:italic;
 }

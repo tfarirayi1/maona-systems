@@ -1,9 +1,10 @@
-import React from 'react';
+import React
+    from 'react';
 
 export default class SalonSystemPage extends React.Component{
     constructor(){
         super();
-        // set state
+        // SET STATE
         this.state={};
         this.state.data=[
             {

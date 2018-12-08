@@ -1,17 +1,24 @@
-import React                from 'react';
-import ExamplesPage         from 'page.examples';
-import TakeawaySystemPage   from 'page.examples--takeaway-system';
-import SalonSystemPage      from 'page.examples--salon-system';
-import BlankPage            from 'page.blank';
-import RouteBroker          from 'broker.route';
-import {Route,Switch}       from 'react-router-dom';
+import React
+    from 'react';
+import ExamplesPage
+    from 'pages/examples.page';
+import TakeawaySystemPage
+    from 'pages/examples.takeaway-system.page';
+import SalonSystemPage
+    from 'pages/examples.salon-system.page';
+import BlankPage
+    from 'pages/blank.page';
+import RouteBroker
+    from 'brokers/route.broker';
+import {Route,Switch}
+    from 'react-router-dom';
 
 export default class SolutionsRouter extends React.Component{
     constructor(){
         super();
-        // load procedures
+        // LOAD FUNCTIONS
         this.renderRoutes=RouteBroker.renderRoutes.bind(this);
-        // set state
+        // SET STATE
         this.state={};
         this.state.routes=[
             {

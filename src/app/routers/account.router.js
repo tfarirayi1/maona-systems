@@ -1,17 +1,24 @@
-import React            from 'react';
-import HomePage         from 'page.account--home';
-import BillingPage      from 'page.account--billing';
-import ProjectsPage     from 'page.account--projects';
-import BlankPage        from 'page.blank';
-import RouteBroker      from 'broker.route';
-import {Switch,Route}   from 'react-router-dom';
+import React
+    from 'react';
+import {Switch,Route}
+    from 'react-router-dom';
+import HomePage
+    from 'pages/account.home.page';
+import BillingPage
+    from 'pages/account.billing.page';
+import ProjectsPage
+    from 'pages/account.projects.page';
+import BlankPage
+    from 'pages/blank.page';
+import RouteBroker
+    from 'brokers/route.broker';
 
 export default class AccountRouter extends React.Component{
     constructor(){
         super();
-        // load procedures
+        // LOAD FUNCTIONS
         this.renderRoutes=RouteBroker.renderRoutes.bind(this);
-        // set state
+        // SET STATE
         this.state={};
         this.state.routes=[
             {

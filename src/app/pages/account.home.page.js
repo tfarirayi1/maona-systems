@@ -1,10 +1,12 @@
-import React    from 'react';
-import {Link}   from 'react-router-dom';
+import React
+    from 'react';
+import {Link}
+    from 'react-router-dom';
 
 export default class AccountHomePage extends React.Component{
     constructor(){
         super();
-        // set state
+        // SET STATE
         this.state={};
         this.state.menu=[
             {

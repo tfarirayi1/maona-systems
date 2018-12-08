@@ -4,7 +4,7 @@
 }
 
 .form__label {
-    font-size:0.9rem;
+    font-size:0.6rem;
 }
 
 .form__icon {
@@ -29,14 +29,14 @@
     cursor:pointer;
     display:table;
     font-weight:bold;
-    font-size:0.8rem;
+    font-size:0.6rem;
 }
 
 .form__submit-button {
     cursor:pointer;
     display:table;
     font-weight:bold;
-    font-size:0.8rem;
+    font-size:0.6rem;
 }
 
 .form__button {

@@ -1,5 +1,6 @@
-import React    from 'react';
-import          'styles/account.billing.css'
+import React
+    from 'react';
+import 'styles/account.billing.css'
 
 export default class AccountBillingPage extends React.Component{
     render(){

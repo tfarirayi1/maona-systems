@@ -4,7 +4,7 @@
 }
 
 .input_label {
-    font-size:0.9rem;
+    font-size:0.7rem;
 }
 
 .input_icon {
@@ -29,7 +29,9 @@
     padding-top:0.1rem;
     cursor:pointer;
     font-weight:bold;
-    font-size:0.8rem;
+    font-size:0.6rem;
+    letter-spacing:1px;
+    text-transform:capitalize;
 }
 
 .submit_buttons {

@@ -1,21 +1,42 @@
-import React            from 'react';
-import BlankPage        from 'page.blank';
-import IndexPage        from 'page.index';
-import RegisterPage     from 'page.register';
-import AboutUsPage      from 'page.about-us';
-import GlossaryPage     from 'page.glossary';
-import LoginRouter      from 'router.login';
-import ExamplesRouter   from 'router.examples';
-import AccountRouter    from 'router.account';
-import RouteBroker      from 'broker.route';
-import {Switch,Route}   from 'react-router-dom';
+import React
+    from 'react';
+
+import BlankPage
+    from 'pages/blank.page';
+
+import IndexPage
+    from 'pages/index.page';
+
+import RegisterPage
+    from 'pages/register.page';
+    
+import AboutUsPage
+    from 'pages/about-us.page';
+
+import GlossaryPage
+    from 'pages/glossary.page';
+
+import LoginRouter
+    from 'routers/login.router';
+
+import ExamplesRouter
+    from 'routers/examples.router';
+
+import AccountRouter
+    from 'routers/account.router';
+
+import RouteBroker
+    from 'brokers/route.broker';
+    
+import {Switch,Route}   
+    from 'react-router-dom';
 
 export default class IndexRouter extends React.Component{
     constructor(){
         super();
-        // load procedures
+        // LOAD PROCEDURES
         this.renderRoutes=RouteBroker.renderRoutes.bind(this);
-        // set state
+        // SET STATE
         this.state={};
         this.state.routes=[
             {

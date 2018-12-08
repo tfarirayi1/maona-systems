@@ -1,17 +1,24 @@
-import React                from 'react';
-import LoginPage            from 'page.login';
-import ResetPasswordPage    from 'page.login--reset-password';
-import ChangePasswordPage   from 'page.login--change-password';
-import BlankPage            from 'page.blank';
-import RouteBroker          from 'broker.route';
-import {Switch,Route}       from 'react-router-dom';
+import React
+    from 'react';
+import LoginPage
+    from 'pages/login.page';
+import ResetPasswordPage
+    from 'pages/login.reset-password.page';
+import ChangePasswordPage
+    from 'pages/login.change-password.page';
+import BlankPage
+    from 'pages/blank.page';
+import RouteBroker
+    from 'brokers/route.broker';
+import {Switch,Route}
+    from 'react-router-dom';
 
 export default class LoginRouter extends React.Component{
     constructor(){
         super();
-        // load procedures
+        // LOAD FUNCTIONS
         this.renderRoutes=RouteBroker.renderRoutes.bind(this);
-        // set state
+        // SET STATE
         this.state={};
         this.state.routes=[
             {

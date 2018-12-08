@@ -1,15 +1,18 @@
-import React        from 'react';
-import LoginBroker  from 'broker.login';
-import FormBroker   from 'broker.form';
+import React
+    from 'react';
+import LoginBroker
+    from 'brokers/login.broker';
+import FormBroker
+    from 'brokers/form.broker';
 
 export default class ChangePasswordPage extends React.Component{
     constructor(props){
         super(props);
-        // load procedures
+        // LOAD FUNCTIONS
         this._handleInputChange=FormBroker.handleInputChange.bind(this);
         this._setNewPassword=LoginBroker.setNewPassword.bind(this);
         this._traverseForm=FormBroker.traverseForm.bind(this);
-        // set state
+        // SET STATE
         const {location}=props;
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
