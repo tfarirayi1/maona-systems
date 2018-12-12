@@ -7,29 +7,40 @@ import {Redirect}
 import LoginBroker 
     from 'brokers/login.broker'; 
 
-import {PencilIcon} 
-    from 'mdi-react';
-
-import {ArrowRightBoldIcon} 
-    from 'mdi-react';
+import FormBroker
+    from 'brokers/form.broker';
 
 import $form
     from 'styles/form.module.css';
 
+import $page
+    from 'styles/page.module.css';
+
 export default class LoginPage extends React.Component{
     constructor(){
         super();
+
         // LOAD FUNCTIONS
-        this.loginFunction=LoginBroker.signIn.bind(this);
-        this.changePasswordFunction=LoginBroker.changePassword.bind(this);
+        // this.login=LoginBroker.signIn.bind(this);
+        this.changePassword=LoginBroker.changePassword.bind(this);
+        this.handleInputChange=FormBroker.handleInputChange.bind(this);
+        this.traverseForm=FormBroker.traverseForm.bind(this);
+        this.login=this.login.bind(this);
+        
         // SET STATE
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
         this.state={};
-        this.state.emailInput="";
-        this.state.passwordInput="";
-        this.state.inputIconSize="0.5em";
-        this.state.submitButtonIconSize="0.9em";
+        this.state.emailField='';
+        this.state.passwordField='';
+        this.state.inputIconSize='';
+        this.state.submitButtonIconSize='1.2em';
+    }
+
+    login(){
+        window.alert(JSON.stringify(
+            this.state.emailField
+        ));
     }
 
     render(){
@@ -38,83 +49,80 @@ export default class LoginPage extends React.Component{
         if (this.props.userId==='') {
             Form=(
                 <div 
-                className="form" 
+                className={$form.form} 
                 ref={this.form}>
                     
                     <div 
-                    className={$form.input}>
+                    className={$form.inputFields}>
 
                         <div 
-                        className={$form.component}>
+                        className={$form.inputField}>
                             
-                            <PencilIcon 
-                            className={$form.input_icon} 
-                            size={this.state.inputIconSize}/>
+                            <label 
+                            className={$form.inputFieldLabel}
+                            htmlFor="emailField">
 
-                            <span 
-                            className={$form.input_label}>
-                                Email
-                            </span>
+                                email
+
+                            </label>
+
+                            <input 
+                            id="emailField"
+                            className={$form.emailField}
+                            type="text"
+                            value={this.state.emailField}
+                            onChange={this.handleInputChange}
+                            onKeyDown={this.traverseForm}
+                            />
 
                         </div>
 
                         <div 
-                        className={$form.component}>
+                        className={$form.inputField}>
 
-                            <PencilIcon 
-                            className={$form.input_icon} 
-                            size={this.state.inputIconSize}/>
+                            <label
+                            className={$form.inputFieldLabel} 
+                            htmlFor="passwordField">
+
+                                password
+
+                            </label>
                             
-                            <span 
-                            className={$form.input_label}>
-
-                                Password
-
-                            </span>
+                            <input 
+                            id="passwordField"
+                            className={$form.passwordField}
+                            type="password"
+                            value={this.state.passwordField}
+                            onChange={this.handleInputChange}
+                            onKeyDown={this.traverseForm}
+                            />
 
                         </div>
 
                     </div>
 
                     <div 
-                    className={$form.submit_buttons}>
+                    className={$form.submitButtons}>
 
                         <div 
-                        className={`${$form.component} ${$form.button}`}>
-                            
-                            <div 
-                            ref={this.formSubmitButton} 
-                            tabIndex="0" 
-                            onClick={this.login}>
-
-                                login
-
-                            </div>
-
-                            <ArrowRightBoldIcon 
-                            className={$form.submit_icon}
-                            size={this.state.submitButtonIconSize}/>
-
+                        tabIndex="0" 
+                        className={$form.button}
+                        onClick={this.changePassword}>
+                        
+                            change-password
+                        
                         </div>
-                    
+                        
                         <div 
-                        className={`${$form.component} ${$form.button}`}>
+                        tabIndex="0"
+                        className={$form.button}
+                        ref={this.formSubmitButton} 
+                        onClick={this.login}>
 
-                            <div 
-                            className="form__change-password-button" 
-                            tabIndex="0" 
-                            onClick={this.changePassword}>
-                            
-                                    change-password
-                            
-                            </div>
-
-                            <ArrowRightBoldIcon 
-                            className={$form.submit_icon} 
-                            size={this.state.submitButtonIconSize}/>
+                            login
 
                         </div>
-                    
+
                     </div>
 
                 </div>
@@ -129,12 +137,14 @@ export default class LoginPage extends React.Component{
             <div 
             className="page">
 
-                <div 
-                className="page__content">
+                <div
+                className={$page.title}>
 
-                    {Form}
+                    Login
 
                 </div>
+
+                {Form}
 
             </div>
         );

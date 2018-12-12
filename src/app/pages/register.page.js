@@ -1,83 +1,191 @@
 import React
     from 'react';
-import LoginBroker
-    from 'brokers/login.broker';
-import FormBroker
-    from 'brokers/form.broker';
+
 import {Redirect}
     from 'react-router-dom';
 
+import LoginBroker
+    from 'brokers/login.broker';
+
+import FormBroker
+    from 'brokers/form.broker';
+
+import $form
+    from 'styles/form.module.css';
+
+import $page
+    from 'styles/page.module.css';
+    
 export default class RegisterPage extends React.Component{
     constructor(){
         super();
+
         // LOAD FUNCTIONS
-        this._handleInputChange=FormBroker.handleInputChange.bind(this);
-        this._traverseForm=FormBroker.traverseForm.bind(this);
-        this._register=LoginBroker.register.bind(this);
+        this.handleInputChange=FormBroker.handleInputChange.bind(this);
+        this.traverseForm=FormBroker.traverseForm.bind(this);
+        // this.register=LoginBroker.register.bind(this);
+        this.register=this.register.bind(this);
+        
         // SET STATE
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
         this.state={};
-        this.state.emailInput='';
-        this.state.businessNameInput='';
-        this.state.passwordInput='';
-        this.state.passwordConfirmationInput='';
+        this.state.emailField='';
+        this.state.businessNameField='';
+        this.state.passwordField='';
+        this.state.passwordConfirmationField='';
+    }
+
+    register(){
+        window.alert(JSON.stringify(
+            this.state.emailField + ' ' + 
+            this.state.businessNameField + ' ' +
+            this.state.passwordField + ' ' +
+            this.state.passwordConfirmationField
+        ))
     }
 
     render(){
-        const Content=()=>{
-            const currentUser=this.props.userId;
-            if(currentUser===''){
-                return(
-                    <div ref={this.form}>
-                        <div>
-                            <label htmlFor="emailInput">
+        let Form;
+
+        if(this.props.userId===''){
+            Form=(
+                <div
+                className={$form.form} 
+                ref={this.form}>
+
+                    <div
+                    className={$form.inputFields}>
+
+                        <div
+                        className={$form.inputField}>
+
+                            <label 
+                            className={$form.inputFieldLabel}
+                            htmlFor="emailField">
+                                
                                 email
+
                             </label>
-                            <input id="emailInput" type="email" autoComplete="off" value={this.state.emailInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
+
+                            <input 
+                            id="emailField" 
+                            className={$form.emailField}
+                            type="text" 
+                            autoComplete="off" 
+                            value={this.state.emailField}
+                            onChange={this.handleInputChange} 
+                            onKeyDown={this.traverseForm}
+                            />
+
                         </div>
-                        <div>
-                            <label htmlFor="businessNameInput">
+
+                        <div
+                        className={$form.inputField}>
+
+                            <label 
+                            className={$form.inputFieldLabel}
+                            htmlFor="businessNameField">
+                                
                                 business name
+
                             </label>
-                            <input id="businessNameInput" type="text" autoComplete="off" value={this.state.businessNameInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
+
+                            <input 
+                            id="businessNameField" 
+                            className={$form.businessNameField}
+                            placeholder=""
+                            type="text" 
+                            autoComplete="off" 
+                            value={this.state.businessNameField}
+                            onChange={this.handleInputChange} 
+                            onKeyDown={this.traverseForm}/>
+
                         </div>
-                        <div>
-                            <label htmlFor="passwordInput">
+
+                        <div
+                        className={`${$form.inputField}`}>
+
+                            <label 
+                            className={$form.inputFieldLabel}
+                            htmlFor="passwordField">
+                                
                                 password
+
                             </label>
-                            <input id="passwordInput" type="password" value={this.state.passwordInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
+
+                            <input 
+                            id="passwordField" 
+                            className={$form.passwordField}
+                            type="password" 
+                            autoComplete="off" 
+                            value={this.state.passwordField}
+                            onChange={this.handleInputChange} 
+                            onKeyDown={this.traverseForm}/>
+
                         </div>
-                        <div>
-                            <label htmlFor="passwordConfirmationInput">
-                                confirm password
+
+                        <div
+                        className={$form.inputField}>
+
+                            <label 
+                            className={$form.inputFieldLabel}
+                            htmlFor="confirmPasswordField">
+                                
+                                confirm-password
+
                             </label>
-                            <input id="passwordConfirmationInput" type="password" value={this.state.passwordConfirmationInput}
-                                onChange={this._handleInputChange} onKeyDown={this._traverseForm}/>
+
+                            <input 
+                            id="confirmPasswordField" 
+                            className={$form.confirmPasswordField}
+                            type="password" 
+                            autoComplete="off" 
+                            value={this.state.comfirmPasswordField}
+                            onChange={this.handleInputChange} 
+                            onKeyDown={this.traverseForm}/>
+
                         </div>
-                        <div>
-                            <div ref={this.formSubmitButton} tabIndex="0" onClick={this._register}>
-                                    submit
-                            </div>
-                        </div>
+
                     </div>
-                );
-            }else{
-                return(
-                    <Redirect to='/account'/>
-                );
-            }
-        };
+
+                    <div
+                    className={$form.submitButtons}>
+
+                        <div 
+                        tabIndex="0" 
+                        ref={this.formSubmitButton}
+                        className={$form.button}
+                        onClick={this.register}
+                        >
+                            
+                            submit
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+            );
+        } else {
+            Form=(
+                <Redirect to='/account'/>
+            );
+        }
 
         return(
-            <div className="register">
-                <div>
-                    register
+            <div 
+            className="register">
+
+                <div
+                className={$page.title}>
+
+                    Register
+
                 </div>
-                <Content/>
+
+                {Form}
+
             </div>
         );
     }

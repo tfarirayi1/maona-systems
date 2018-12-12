@@ -7,13 +7,16 @@ import {Link}
 import $index
     from 'styles/index.module.css';
 
+import $menu
+    from 'styles/menu.module.css';
+
 export default class IndexPage extends React.Component{
     render(){
         const Neutral=(
             <React.Fragment>
                     
                     <Link
-                    className={$index.link} 
+                    className={$menu.item} 
                     to="/about-us">
                         
                         About-us
@@ -31,7 +34,7 @@ export default class IndexPage extends React.Component{
                 <React.Fragment>
             
                         <Link 
-                        className={$index.link}
+                        className={$menu.item}
                         to="/account">
 
                             Account
@@ -47,7 +50,7 @@ export default class IndexPage extends React.Component{
                 <React.Fragment>
                     
                         <Link 
-                        className={$index.link}
+                        className={$menu.item}
                         to="/login">
                             
                             Login
@@ -55,7 +58,7 @@ export default class IndexPage extends React.Component{
                         </Link>
 
                         <Link 
-                        className={$index.link}
+                        className={$menu.item}
                         to="/register">
                         
                             Register
@@ -73,7 +76,7 @@ export default class IndexPage extends React.Component{
             className={$index.page}>
             
                 <div
-                className={$index.menu}>
+                className={$menu.menu}>
 
                     {Menu}
 

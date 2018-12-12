@@ -13,7 +13,7 @@ export default class OathPage extends React.Component{
                 <div
                 className={`${$about.paragraph}`}>
                 
-                    We develop and maintain web apps for various types of organisations.
+                    We develop and maintain interactive websites for various types of organisations.
 
                 </div>
 
