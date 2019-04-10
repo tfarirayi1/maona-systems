@@ -1,32 +1,60 @@
 .menu {
     display:flex;
+
     flex-direction:column;
+
     align-items:flex-start;
+
     justify-content:center;
+
     flex-wrap:wrap;
-    font-size:0.58rem;
+
     background-color:rgba(0,0,0,0);
-    letter-spacing:3.4px;
+    
     flex-basis:content;
+
     font-family:mono;
+    
+    color:rgba(38,50,56,1);
+    
+    color:rgba(236,239,241,1);
+    
 }
 
 .item {
-    padding:0.1rem;
+    text-transform:capitalize;
+
+    font-family:fira;
+
+    font-size:0.59rem;
+
+    letter-spacing:2px;
+    
+    padding:0.05rem;
+
     text-overflow:ellipsis;
+
     white-space:nowrap;
+
     text-align:center;
-    color:rgba(38,50,56,1);
+
     outline:none;
+
     border-radius:3px;
-    transition:color 0.07s;    
+
+    transition:color 0.07s;  
+
+    color:rgba(236,239,241,1);
+
+    color:rgba(207,216,220 ,1);
+
 }
 
 .item:before {
-    content:'.';
+    content:'';
     font-size:0.8em;
     letter-spacing:2px;
-    color:rgba(0,0,0,1);
+    color:rgba(236,239,241,1);
 }
 
 .item:focus {

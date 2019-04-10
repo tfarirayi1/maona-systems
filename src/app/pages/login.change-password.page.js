@@ -1,17 +1,19 @@
 import React
     from 'react';
-import LoginBroker
-    from 'brokers/login.broker';
-import FormBroker
-    from 'brokers/form.broker';
+
+import LoginOperator
+    from 'operators/login.operator';
+
+import FormOperator
+    from 'operators/form.operator';
 
 export default class ChangePasswordPage extends React.Component{
     constructor(props){
         super(props);
         // LOAD FUNCTIONS
-        this._handleInputChange=FormBroker.handleInputChange.bind(this);
-        this._setNewPassword=LoginBroker.setNewPassword.bind(this);
-        this._traverseForm=FormBroker.traverseForm.bind(this);
+        this._handleInputChange=FormOperator.handleInputChange.bind(this);
+        this._setNewPassword=LoginOperator.setNewPassword.bind(this);
+        this._traverseForm=FormOperator.traverseForm.bind(this);
         // SET STATE
         const {location}=props;
         this.form=React.createRef();

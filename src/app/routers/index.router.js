@@ -25,66 +25,81 @@ import ExamplesRouter
 import AccountRouter
     from 'routers/account.router';
 
-import RouteBroker
-    from 'brokers/route.broker';
+import RouteOperator
+    from 'operators/route.operator';
     
 import {Switch,Route}   
     from 'react-router-dom';
 
 export default class IndexRouter extends React.Component{
+    
     constructor(){
+
         super();
+        
         // LOAD PROCEDURES
-        this.renderRoutes=RouteBroker.renderRoutes.bind(this);
+        this.renderRoutes=RouteOperator.renderRoutes.bind(this);
+
         // SET STATE
         this.state={};
-        this.state.routes=[
+        this.state.routes=[ // associated with renderRoutes function in route.operator.js
             {
-                endpoint:'/',
-                component:IndexPage,
+                destination:'/',
+                view:IndexPage,
                 exact:true,
             },
             {
-                endpoint:'/register',
-                component:RegisterPage,
+                destination:'/register',
+                view:RegisterPage,
                 exact:true,
             },
             {
-                endpoint:'/login',
-                component:LoginRouter,
+                destination:'/login',
+                view:LoginRouter,
                 exact:false,
             },
             {
-                endpoint:'/account',
-                component:AccountRouter,
+                destination:'/account',
+                view:AccountRouter,
                 exact:false,
             },
             {
-                endpoint:'/examples',
-                component:ExamplesRouter,
+                destination:'/examples',
+                view:ExamplesRouter,
                 exact:false,
             },  
             {
-                endpoint:'/about-us',
-                component:AboutUsPage,
+                destination:'/about-us',
+                view:AboutUsPage,
                 exact:true,
             },
             {
-                endpoint:'/glossary',
-                component:GlossaryPage,
+                destination:'/glossary',
+                view:GlossaryPage,
                 exact:true,
             },
         ];
+
     }
 
     render(){
+
         return(
+
             <Switch>
+
                 {
+
                     this.renderRoutes()
+
                 }
+
                 <Route component={BlankPage}/>
+
             </Switch>
+
         );
+
     }
+
 }

@@ -11,15 +11,20 @@ import $menu
     from 'styles/menu.module.css';
 
 export default class IndexPage extends React.Component{
+    
     render(){
+
+        let Menu;
+
         const Neutral=(
+
             <React.Fragment>
                     
                     <Link
                     className={$menu.item} 
                     to="/about-us">
                         
-                        About-us
+                        help
                 
                     </Link>
                 
@@ -27,33 +32,37 @@ export default class IndexPage extends React.Component{
 
         );
 
-        let Menu;
-
         if (this.props.userId) {
+
             Menu=(
+
                 <React.Fragment>
             
                         <Link 
                         className={$menu.item}
                         to="/account">
 
-                            Account
+                            account
 
                         </Link>
                         
                     {Neutral}
                 
                 </React.Fragment>
+
             );
+
         } else {
+
             Menu=(
+
                 <React.Fragment>
                     
                         <Link 
                         className={$menu.item}
                         to="/login">
                             
-                            Login
+                            login
 
                         </Link>
 
@@ -61,17 +70,20 @@ export default class IndexPage extends React.Component{
                         className={$menu.item}
                         to="/register">
                         
-                            Register
+                            register
 
                         </Link>
 
                     {Neutral}
 
                 </React.Fragment>
+
             );
+
         }
 
         return(
+
             <div 
             className={$index.page}>
             
@@ -83,6 +95,9 @@ export default class IndexPage extends React.Component{
                 </div>
             
             </div>
+
         );
+
     }
+
 }

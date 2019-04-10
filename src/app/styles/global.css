@@ -8,10 +8,14 @@
     src:url(../fonts/OverpassMono-Light.ttf);
 }
 
+@font-face {
+    font-family:fira;
+    src:url(../fonts/FiraSans-Regular.ttf);
+}
+
 :root
 {
     font-size:2.03em;
-    font-family:zilla;
     letter-spacing:0.7px;
 }
 

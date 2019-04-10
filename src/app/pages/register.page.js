@@ -4,11 +4,11 @@ import React
 import {Redirect}
     from 'react-router-dom';
 
-import LoginBroker
-    from 'brokers/login.broker';
+import LoginOperator
+    from 'operators/login.operator';
 
-import FormBroker
-    from 'brokers/form.broker';
+import FormOperator
+    from 'operators/form.operator';
 
 import $form
     from 'styles/form.module.css';
@@ -21,12 +21,12 @@ export default class RegisterPage extends React.Component{
         super();
 
         // LOAD FUNCTIONS
-        this.handleInputChange=FormBroker.handleInputChange.bind(this);
-        this.traverseForm=FormBroker.traverseForm.bind(this);
-        // this.register=LoginBroker.register.bind(this);
+        this.handleInputChange=FormOperator.handleInputChange.bind(this);
+        this.traverseForm=FormOperator.traverseForm.bind(this);
         this.register=this.register.bind(this);
+        // this.register=LoginOperator.register.bind(this);
         
-        // SET STATE
+        // WORKING MEMORY
         this.form=React.createRef();
         this.formSubmitButton=React.createRef();
         this.state={};
@@ -49,7 +49,9 @@ export default class RegisterPage extends React.Component{
         let Form;
 
         if(this.props.userId===''){
+
             Form=(
+
                 <div
                 className={$form.form} 
                 ref={this.form}>
@@ -166,14 +168,21 @@ export default class RegisterPage extends React.Component{
                     </div>
 
                 </div>
+
             );
-        } else {
+
+        }else{
+            
             Form=(
+            
                 <Redirect to='/account'/>
+            
             );
+
         }
 
         return(
+
             <div 
             className="register">
 
@@ -187,6 +196,9 @@ export default class RegisterPage extends React.Component{
                 {Form}
 
             </div>
+
         );
+
     }
+    
 }

@@ -4,11 +4,11 @@ import React
 import {Redirect} 
     from 'react-router-dom';
 
-import LoginBroker 
-    from 'brokers/login.broker'; 
+import LoginOperator 
+    from 'operators/login.operator'; 
 
-import FormBroker
-    from 'brokers/form.broker';
+import FormOperator
+    from 'operators/form.operator';
 
 import $form
     from 'styles/form.module.css';
@@ -22,9 +22,9 @@ export default class LoginPage extends React.Component{
 
         // LOAD FUNCTIONS
         // this.login=LoginBroker.signIn.bind(this);
-        this.changePassword=LoginBroker.changePassword.bind(this);
-        this.handleInputChange=FormBroker.handleInputChange.bind(this);
-        this.traverseForm=FormBroker.traverseForm.bind(this);
+        this.changePassword=LoginOperator.changePassword.bind(this);
+        this.handleInputChange=FormOperator.handleInputChange.bind(this);
+        this.traverseForm=FormOperator.traverseForm.bind(this);
         this.login=this.login.bind(this);
         
         // SET STATE

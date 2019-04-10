@@ -1,14 +1,14 @@
 import React
     from 'react';
 
-import LoginBroker
-    from 'brokers/login.broker';
-
 import IndexRouter
     from 'routers/index.router';
 
-import NavigationBroker
-    from 'brokers/navigation.broker';
+import LoginOperator
+    from 'operators/login.operator';
+    
+import NavigationOperator
+    from 'operators/navigation.operator';
 
 import {withRouter}
     from 'react-router-dom';
@@ -22,31 +22,41 @@ import $frame
     from 'styles/frame.module.css';
 
 class Frame extends React.Component{
+
     constructor(){
+
         super();
+
         // LOAD FUNCTIONS
         this.handleKeyPress=this.handleKeyPress.bind(this);
-        this.navigateUp=NavigationBroker.navigateUp.bind(this);
-        this.signOut=LoginBroker.signOut.bind(this);
-        this.verifyUser=LoginBroker.verifyUser.bind(this);
-        this.configureAuthentication=LoginBroker.configure.bind(this);
+        this.upwards=NavigationOperator.upwards.bind(this);
+        this.backwards=NavigationOperator.backwards.bind(this);
+        this.signOut=LoginOperator.signOut.bind(this);
+        this.verifyUser=LoginOperator.verifyUser.bind(this);
+        this.configureAuthentication=LoginOperator.configure.bind(this);
+        
         // SET STATE
         this.upButton=React.createRef();
         this.backButton=React.createRef();
         this.settingsButton=React.createRef();
         this.state={};
         this.state.userId='';
-        this.state.toolIconSize='1em';
+        this.state.toolIconSize='1.2em';
+        
         // PERFORM INITIAL ACTIONS
         document.title='Maona Systems';
         this.configureAuthentication();
+
     }
 
     componentDidMount(){
+
         // this._verifyUser();
+
     }
 
     handleKeyPress(p1){
+
         const event=p1;
 
         if(event.key===' ' || event.key==='Enter'){
@@ -54,6 +64,7 @@ class Frame extends React.Component{
             this[event.target.id].current.click();
             
         }
+
     }
 
     render(){
@@ -62,12 +73,12 @@ class Frame extends React.Component{
             className={$frame.tools}
             >
 
-                <div
+                {/* <div
                 id="upButton"
                 className={$frame.button}
                 tabIndex="0" 
                 ref={this.upButton}
-                onClick={this.navigateUp}
+                onClick={this.upwards}
                 onKeyDown={this.handleKeyPress}
                 >
 
@@ -75,15 +86,16 @@ class Frame extends React.Component{
                     className={$frame.symbol}
                     size={this.state.toolIconSize} 
                     />
+                    Up
 
-                </div>
+                </div> */}
 
                 <div
                 id="backButton"
                 className={$frame.button}
                 tabIndex="0"
                 ref={this.backButton}
-                onClick={this.goBack}
+                onClick={this.backwards}
                 onKeyDown={this.handleKeyPress}
                 >
 
@@ -91,6 +103,7 @@ class Frame extends React.Component{
                     className={$frame.symbol}
                     size={this.state.toolIconSize}
                     />
+                    back
 
                 </div>
 
@@ -108,12 +121,15 @@ class Frame extends React.Component{
                     size={this.state.toolIconSize}
                     />
 
+                    options
+
                 </div>
 
             </div>
         );
 
         return(
+
             <div 
             className={$frame.frame}>
                 
@@ -127,7 +143,11 @@ class Frame extends React.Component{
                 </div>
                 
             </div>
+
         );
+    
     }
+
 }
+
 export default withRouter(Frame);

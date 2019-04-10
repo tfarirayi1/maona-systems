@@ -1,15 +1,21 @@
 import React
     from 'react';
+
 import ExamplesPage
     from 'pages/examples.page';
+
 import TakeawaySystemPage
     from 'pages/examples.takeaway-system.page';
+
 import SalonSystemPage
     from 'pages/examples.salon-system.page';
+
 import BlankPage
     from 'pages/blank.page';
-import RouteBroker
-    from 'brokers/route.broker';
+
+import RouteOperator
+    from 'operators/route.operator';
+
 import {Route,Switch}
     from 'react-router-dom';
 
@@ -17,7 +23,7 @@ export default class SolutionsRouter extends React.Component{
     constructor(){
         super();
         // LOAD FUNCTIONS
-        this.renderRoutes=RouteBroker.renderRoutes.bind(this);
+        this.renderRoutes=RouteOperator.renderRoutes.bind(this);
         // SET STATE
         this.state={};
         this.state.routes=[
