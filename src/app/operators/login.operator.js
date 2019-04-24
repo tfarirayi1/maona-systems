@@ -84,10 +84,8 @@ export default class LoginOperator{
             })
             .catch((Param1)=>{
                 
-                console.log(Param1);
-
                 this.setState({
-                    userId:'',
+                    userId:"no-user",
                 });
 
             });

@@ -32,17 +32,17 @@ export default class LoginRouter extends React.Component{
         this.state={};
         this.state.routes=[
             {
-                destination:'/login',
+                target:'/login',
                 view:LoginPage,
                 exact:true,
             },
             {
-                destination:'/login/reset-password',
+                target:'/login/reset-password',
                 view:ResetPasswordPage,
                 exact:true,
             },
             {
-                destination:'/login/change-password',
+                target:'/login/change-password',
                 view:ChangePasswordPage,
                 exact:true,
             },

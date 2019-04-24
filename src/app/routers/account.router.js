@@ -22,8 +22,8 @@ import RouteOperator
 export default class AccountRouter extends React.Component{
     
     constructor(){
-    
         super();
+        console.log(this.props)
     
         // LOAD FUNCTIONS
         this.renderRoutes=RouteOperator.renderRoutes.bind(this);
@@ -32,17 +32,17 @@ export default class AccountRouter extends React.Component{
         this.state={};
         this.state.routes=[
             {
-                destination:'/account',
+                target:'/account',
                 view:HomePage,
                 exact:true,
             },
             {
-                destination:'/account/billing',
+                target:'/account/billing',
                 view:BillingPage,
                 exact:true,
             },
             {
-                destination:'/account/projects',
+                target:'/account/projects',
                 view:ProjectsPage,
                 exact:true,
             },
@@ -50,7 +50,7 @@ export default class AccountRouter extends React.Component{
     }
 
     render(){
-
+        console.log(this.props)
         return(
             
             <Switch>

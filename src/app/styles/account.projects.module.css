@@ -1,0 +1,23 @@
+.page_title {
+ 
+    font-size:0.57rem;
+ 
+    font-family:sans-serif;
+ 
+    letter-spacing:0.5px;
+ 
+    background-color:rgba(255,138,101,0.2);
+ 
+    padding:0px 3px;
+ 
+    /* line-height:120%; */
+ 
+    border-radius:3px;
+ 
+    width:fit-content;
+ 
+    text-transform:capitalize;
+
+    color:rgba(236,239,241,1);
+
+}

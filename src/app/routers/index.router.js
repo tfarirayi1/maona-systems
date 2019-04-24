@@ -44,41 +44,47 @@ export default class IndexRouter extends React.Component{
         this.state={};
         this.state.routes=[ // associated with renderRoutes function in route.operator.js
             {
-                destination:'/',
+                target:'/',
                 view:IndexPage,
                 exact:true,
             },
             {
-                destination:'/register',
+                target:'/register',
                 view:RegisterPage,
                 exact:true,
             },
             {
-                destination:'/login',
+                target:'/login',
                 view:LoginRouter,
                 exact:false,
             },
             {
-                destination:'/account',
+                target:'/account',
                 view:AccountRouter,
                 exact:false,
             },
             {
-                destination:'/examples',
+                target:'/examples',
                 view:ExamplesRouter,
                 exact:false,
             },  
             {
-                destination:'/about-us',
+                target:'/about-us',
                 view:AboutUsPage,
                 exact:true,
             },
             {
-                destination:'/glossary',
+                target:'/glossary',
                 view:GlossaryPage,
                 exact:true,
             },
         ];
+
+    }
+
+    static getDerivedStateFromProps(props){
+        
+        return null;
 
     }
 

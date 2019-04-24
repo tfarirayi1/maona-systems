@@ -13,7 +13,7 @@ import NavigationOperator
 import {withRouter}
     from 'react-router-dom';
 
-import {ArrowLeftThickIcon,InformationIcon,SettingsIcon,ArrowUpThickIcon}
+import {ArrowLeftThickIcon,InformationIcon,HomeIcon,SettingsIcon,ArrowUpThickIcon}
     from 'mdi-react';
 
 import 'styles/global.css';
@@ -21,12 +21,14 @@ import 'styles/global.css';
 import $frame
     from 'styles/frame.module.css';
 
+import $shadows
+    from 'styles/shadows.module.css';
+
 class Frame extends React.Component{
 
     constructor(){
 
         super();
-
         // LOAD FUNCTIONS
         this.handleKeyPress=this.handleKeyPress.bind(this);
         this.upwards=NavigationOperator.upwards.bind(this);
@@ -51,7 +53,7 @@ class Frame extends React.Component{
 
     componentDidMount(){
 
-        // this._verifyUser();
+        this.verifyUser();
 
     }
 
@@ -68,7 +70,9 @@ class Frame extends React.Component{
     }
 
     render(){
+
         const Tools=(
+        
             <div 
             className={$frame.tools}
             >
@@ -99,11 +103,10 @@ class Frame extends React.Component{
                 onKeyDown={this.handleKeyPress}
                 >
 
-                    <ArrowLeftThickIcon 
+                    <HomeIcon 
                     className={$frame.symbol}
                     size={this.state.toolIconSize}
                     />
-                    back
 
                 </div>
 
@@ -120,8 +123,6 @@ class Frame extends React.Component{
                     className={$frame.symbol}
                     size={this.state.toolIconSize}
                     />
-
-                    options
 
                 </div>
 

@@ -1,4 +1,11 @@
-import React from 'react';
+import React 
+    from 'react';
+
+import $account
+    from 'styles/account.projects.module.css';
+
+import $page
+    from 'styles/page.module.css';
 
 export default class AccountProjectsPage extends React.Component{
     
@@ -9,9 +16,10 @@ export default class AccountProjectsPage extends React.Component{
             <div 
             className="account--projects">
             
-                <div>
+                <div
+                className={$page.title}>
             
-                    your projects
+                    projects
             
                 </div>
             

@@ -1,7 +1,11 @@
 import React
     from 'react';
 
-import 'styles/account.billing.css'
+import $account
+    from 'styles/account.billing.module.css';
+
+import $page
+    from 'styles/page.module.css';
 
 export default class AccountBillingPage extends React.Component{
     
@@ -12,9 +16,10 @@ export default class AccountBillingPage extends React.Component{
             <div 
             className="account--billing">
             
-                <div>
+                <div
+                className={$page.title}>
             
-                    your bill
+                    billing
             
                 </div>
             

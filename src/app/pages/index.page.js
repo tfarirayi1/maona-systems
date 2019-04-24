@@ -10,6 +10,9 @@ import $index
 import $menu
     from 'styles/menu.module.css';
 
+import $page
+    from 'styles/page.module.css';
+
 export default class IndexPage extends React.Component{
     
     render(){
@@ -85,12 +88,28 @@ export default class IndexPage extends React.Component{
         return(
 
             <div 
-            className={$index.page}>
+            className={$page.page}>
+
+                <div
+                className={$page.head}>
+                    
+                    <div>
+            
+                        Home
+            
+                    </div>
+            
+                </div>
             
                 <div
-                className={$menu.menu}>
+                className={$page.body}>
 
-                    {Menu}
+                    <div
+                    className={$menu.menu}>
+
+                        {Menu}
+
+                    </div>
 
                 </div>
             

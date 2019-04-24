@@ -1,7 +1,30 @@
 .page {
-    font-size:0.6rem;
+    
+    font-size:0.51rem;
+
+    display:flex;
+    
+    flex-direction:column;
+    
+    font-family:zilla;
+    
+    color:rgba(38,50,56,0.9);
+    
+    color:rgba(207,216,220 ,1);
+    
+    border-radius:3px;
+
+    padding:0.05rem;
+
+}
+
+.welcome {
+    padding:0.15rem;
+
+
 }
 
 .paragraph {
     padding:0.15rem;
 }
+

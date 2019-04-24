@@ -4,8 +4,18 @@
 }
 
 @font-face {
+    font-family:raleway;
+    src:url('../fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
     font-family:mono;
     src:url(../fonts/OverpassMono-Light.ttf);
+}
+
+@font-face {
+    font-family:heebo;
+    src:url(../fonts/Heebo-Regular.ttf);
 }
 
 @font-face {

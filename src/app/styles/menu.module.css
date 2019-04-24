@@ -1,4 +1,7 @@
+/* @import url('https://fonts.googleapis.com/css?family=Heebo'); */
+
 .menu {
+
     display:flex;
 
     flex-direction:column;
@@ -13,24 +16,25 @@
     
     flex-basis:content;
 
-    font-family:mono;
-    
-    color:rgba(38,50,56,1);
+    font-family:raleway;
     
     color:rgba(236,239,241,1);
-    
+
+    /* padding:0 0.2rem; */
+
+    font-size:0.53rem;
 }
 
 .item {
+
     text-transform:capitalize;
 
-    font-family:fira;
+    /* font-family:zilla; */
 
-    font-size:0.59rem;
 
-    letter-spacing:2px;
+    letter-spacing:1.1px;
     
-    padding:0.05rem;
+    padding:0.04rem;
 
     text-overflow:ellipsis;
 
@@ -44,8 +48,6 @@
 
     transition:color 0.07s;  
 
-    color:rgba(236,239,241,1);
-
     color:rgba(207,216,220 ,1);
 
 }
@@ -58,10 +60,12 @@
 }
 
 .item:focus {
-    background-color:rgba(38,50,56,1);
-    color:rgba(236,239,241,1);
+    color:rgba(38,50,56,1);
+    background-color:rgba(207,216,220 ,1);
+    
 }
 
 .item:active {
     color:rgba(255,138,101,1);
+
 }

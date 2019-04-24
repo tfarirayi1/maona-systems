@@ -1,22 +1,32 @@
 import React
     from 'react';
+
 import {Link}
     from 'react-router-dom';
 
+import $account
+    from 'styles/account.home.module.css';
+
+import $page
+    from 'styles/page.module.css';
+
+import $menu
+    from 'styles/menu.module.css';
+
 export default class AccountHomePage extends React.Component{
+   
     constructor(){
         
         super();
-
         this.state={};
 
         this.state.menu=[
             {
-                endpoint:'/account/billing',
+                target:'/account/billing',
                 title:'billing',
             },
             {
-                endpoint:'/account/projects',
+                target:'/account/projects',
                 title:'projects',
             },
         ];
@@ -24,57 +34,66 @@ export default class AccountHomePage extends React.Component{
     }
 
     render(){
-
+        console.log(this.props)
         return(
 
-            <div className="account--home">
+            <div 
+            className={$page.page}>
             
-                <div>
-            
-                    <div>
-            
-                        your account
-            
-                    </div>
+                <div
+                className={$page.head}>
             
                     <div>
             
-                        {this.props.userId}
+                        account
             
                     </div>
             
                 </div>
             
-                {
+                <div 
+                className={$page.body}>
 
-                    this.state.menu.map(
-                    
-                        (Param1,Param2)=>{
+                    <div
+                    className={$menu.menu}>
 
-                            const item=Param1;
+                        {
+                            
+                            this.state.menu.map(
+                            
+                                (Param1,Param2)=>{
 
-                            const position=Param2;
+                                    const item=Param1;
 
-                            return(
+                                    const position=Param2;
 
-                                <div key={position}>
+                                    return(
 
-                                    <Link 
-                                    to={item.endpoint}
-                                    >
-                                        {item.title}
+                                        <div 
+                                        key={position}
+                                        >
 
-                                    </Link>
+                                            <Link 
+                                            to={item.target}
+                                            className={$menu.item}
+                                            >
+                                                {item.title}
 
-                                </div>
+                                            </Link>
 
-                            );
+                                        </div>
+
+                                    );
+
+                                }
+                            
+                            )
 
                         }
-                    
-                    )
 
-                }
+                    </div>
+                
+                </div>
 
             </div>
 

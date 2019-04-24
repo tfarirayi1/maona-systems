@@ -16,19 +16,23 @@ export default class RouteOperator{
 
             const component=(p1)=>{
 
-                const props={};
-                console.log(p1);
                 const routeObject=p1;
-
-                // props.userId=this.props.userId;
                 
-                return React.createElement(item.component,Object.assign(props,routeObject)); //https://reactjs.org/docs/react-api.html#createelement
+                const props={};
+
+                props.userId=this.props.userId;
+                
+                return React.createElement(item.view,Object.assign(props,routeObject)); //https://reactjs.org/docs/react-api.html#createelement
 
             };
 
             return(
 
-                <Route key={position} exact={item.exact} path={item.destination} component={item.view}/>
+                <Route 
+                key={position} 
+                exact={item.exact} 
+                path={item.target} 
+                render={component}/>
 
             );
 
